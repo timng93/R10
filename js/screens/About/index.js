@@ -1,4 +1,3 @@
-import AboutContainer from './AboutContainer';
-// import About from './About';
-// export { About };
+import AboutContainer from "./AboutContainer";
+
 export default AboutContainer;
