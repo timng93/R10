@@ -1,9 +1,9 @@
-import {StyleSheet, Dimensions} from 'react-native'
+import {StyleSheet} from 'react-native'
 
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "#F5FCFF"
+      backgroundColor: "white"
     },
     
     list: {
