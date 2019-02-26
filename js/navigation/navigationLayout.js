@@ -9,24 +9,53 @@ import FavesScreen from "../screens/Faves";
 import ScheduleScreen from "../screens/Schedule";
 import SessionScreen from "../screens/Session";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { sharedNavigationOptions } from "./config";
 
-const ScheduleStack = createStackNavigator({
-  Schedule: ScheduleScreen,
-  Session: SessionScreen
-});
+const ScheduleStack = createStackNavigator(
+  {
+    Schedule: ScheduleScreen,
+    Session: SessionScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 
-const MapsStack = createStackNavigator({
-  Maps: MapsScreen
-});
+const MapsStack = createStackNavigator(
+  {
+    Maps: MapsScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 
-const FavesStack = createStackNavigator({
-  Faves: FavesScreen,
-  Session: SessionScreen
-});
+const FavesStack = createStackNavigator(
+  {
+    Faves: FavesScreen,
+    Session: SessionScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 
-const AboutStack = createStackNavigator({
-  About: AboutScreen
-});
+const AboutStack = createStackNavigator(
+  {
+    About: AboutScreen
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      ...sharedNavigationOptions(navigation)
+    })
+  }
+);
 
 // Dedicated stacks for Schedule and Faves will go here too!
 export default createBottomTabNavigator(
@@ -53,12 +82,13 @@ export default createBottomTabNavigator(
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       }
     }),
-  
+
     tabBarOptions: {
       activeTintColor: "#fff",
       inactiveTintColor: "#999",
       labelStyle: {
-        fontSize: 10
+        fontSize: 10,
+        fontFamily: "Montserrat"
       },
       style: {
         backgroundColor: "#000"
