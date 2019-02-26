@@ -1,6 +1,14 @@
 import React, { Component } from "react";
-import { Text, View, SectionList, Image, ScrollView, FlatList } from "react-native";
+import {
+  Text,
+  View,
+  SectionList,
+  Image,
+  ScrollView,
+  FlatList
+} from "react-native";
 import styles from "./styles";
+import moment from "moment"
 
 const Schedule = props => {
   return (
@@ -16,6 +24,11 @@ const Schedule = props => {
           </View>
         )}
         sections={props.data}
+        renderSectionHeader={({ section }) => (
+          <Text style={styles.header}>
+            {moment(section.title).format("h:mm a")}
+          </Text>
+        )}
         ItemSeparatorComponent={() => {
           return <View style={styles.itemSeparator} />;
         }}
