@@ -35,7 +35,8 @@ class ScheduleContainer extends Component {
         {({ loading, error, data }) => {
           if (loading) return <Text>Loading..</Text>;
             if (error) return console.log(error);
-          return <Schedule data={formatSessionData(data.allSessions)} />;
+          return <Schedule navigation={this.props.navigation}
+            data={formatSessionData(data.allSessions)} />;
         }}
       </Query>
     );

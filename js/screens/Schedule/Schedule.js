@@ -3,6 +3,7 @@ import {
   Text,
   View,
   SectionList,
+  TouchableHighlight,
   Image,
   ScrollView,
   FlatList
@@ -16,12 +17,16 @@ const Schedule = props => {
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index }) => (
+          <TouchableHighlight onPress={e => {
+              props.navigation.navigate("Session", {section: item});
+          }}>
           <View style={styles.items} key={index}>
             <Text style={styles.title}>{item.title}</Text>
             <View style={styles.locationView}>
               <Text style={styles.location}>{item.location}</Text>
             </View>
           </View>
+          </TouchableHighlight>
         )}
         sections={props.data}
         renderSectionHeader={({ section }) => (
