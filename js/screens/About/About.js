@@ -9,8 +9,9 @@ class About extends Component {
   render() {
     console.log(this.props.data.allConducts);
     return (
-      <View style={styles.container}>
-        <Image source={require("../../assets/images/logo.png")} />
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+
+        <Image style={styles.image} source={require("../../assets/images/logo.png")} />
         <Text style={styles.description}>
           R10 is a conference that focuses on just about any topic related to
           dev
@@ -20,12 +21,14 @@ class About extends Component {
           The R10 Conference will take place on Tuesday, June 27, 2017 in
           Vancouver, BC.
         </Text>
+        <Text style={styles.title}>Code of Conduct</Text>
         <FlatList
           style={styles.list}
           data={this.props.data.allConducts}
           renderItem={({ item }) => (
-            <View style={{ flexDirection: "row" }}>
+            <View>
               <Text style={{ color: "purple" }}>{item.title}</Text>
+              <Text>{item.description}</Text>
             </View>
           )}
           keyExtractor={item => item.id + ""}
@@ -33,7 +36,9 @@ class About extends Component {
           //   keyExtractor={item => item.index + ""}
         />
         <Text>&copy; RED Academy 2017</Text>
-      </View>
+        </ScrollView>
+
+     
     );
   }
 }
