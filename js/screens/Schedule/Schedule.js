@@ -9,7 +9,7 @@ import {
   FlatList
 } from "react-native";
 import styles from "./styles";
-import moment from "moment"
+import moment from "moment";
 
 const Schedule = props => {
   return (
@@ -17,15 +17,19 @@ const Schedule = props => {
       <SectionList
         style={styles.sectionList}
         renderItem={({ item, index }) => (
-          <TouchableHighlight onPress={e => {
-              props.navigation.navigate("Session", {section: item});
-          }}>
-          <View style={styles.items} key={index}>
-            <Text style={styles.title}>{item.title}</Text>
-            <View style={styles.locationView}>
-              <Text style={styles.location}>{item.location}</Text>
+          <TouchableHighlight
+            onPress={e => {
+              props.navigation.navigate("Session", {
+               session: item
+              });
+            }}
+          >
+            <View style={styles.items} key={index}>
+              <Text style={styles.title}>{item.title}</Text>
+              <View style={styles.locationView}>
+                <Text style={styles.location}>{item.location}</Text>
+              </View>
             </View>
-          </View>
           </TouchableHighlight>
         )}
         sections={props.data}

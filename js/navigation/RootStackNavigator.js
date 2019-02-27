@@ -6,7 +6,7 @@ export default createAppContainer(
   createStackNavigator(
     {
       layout: NavigationLayout,
-      speaker: SpeakerModal
+      Speaker: SpeakerModal
     },
     {
       mode: "modal",
