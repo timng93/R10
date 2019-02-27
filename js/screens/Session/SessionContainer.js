@@ -13,7 +13,11 @@ export default class SessionContainer extends Component {
     console.log(session);
     return (
       <View>
-        <Session data={session} navigation={this.props.navigation} />
+        <FavesContext.Consumer>
+          {({ faveIds }) => (
+            <Session data={session} navigation={this.props.navigation} />
+          )}
+        </FavesContext.Consumer>
       </View>
     );
   }

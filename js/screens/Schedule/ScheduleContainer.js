@@ -4,11 +4,23 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Schedule from "./Schedule";
 import { formatSessionData } from "../../lib/helpers/dataFormatHelpers";
+import FavesContext from "../../context/FavesContext";
+
 class ScheduleContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  static navigationOptions = {
+    title: "Schedule",
+    // headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold",
+      color: "#FFFFFF",
+      fontSize: 20
+    }
+  };
 
   render() {
     return (
@@ -34,9 +46,17 @@ class ScheduleContainer extends Component {
       >
         {({ loading, error, data }) => {
           if (loading) return <Text>Loading..</Text>;
-            if (error) return console.log(error);
-          return <Schedule navigation={this.props.navigation}
-            data={formatSessionData(data.allSessions)} />;
+          if (error) return console.log(error);
+          return (
+            <FavesContext.Consumer>
+               {({ faveIds }) => (
+              <Schedule
+                navigation={this.props.navigation}
+                data={formatSessionData(data.allSessions)}
+              />
+               )}
+            </FavesContext.Consumer>
+          );
         }}
       </Query>
     );

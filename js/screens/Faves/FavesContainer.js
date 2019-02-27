@@ -1,18 +1,18 @@
-
-import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import React, { Component } from "react";
+import { View, Text } from "react-native";
 
 export default class FavesContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
     return (
       <View>
-        <Text> Faves </Text>
+        <FavesContext.Consumer>
+          {({ faveIds }) => <Text> Faves </Text>}
+        </FavesContext.Consumer>
       </View>
     );
   }
