@@ -29,7 +29,7 @@ const Session = props => {
         <View>
           <TouchableOpacity
             style={styles.imageContainer}
-            onPress={e => {
+            onPress={() => {
               props.navigation.navigate("Speaker", {
                 speaker: props.data.speaker
               });
@@ -48,7 +48,7 @@ const Session = props => {
                 <View>
                   {isFave ? (
                     <TouchableOpacity
-                      style={styles.imageContainer}
+                      style={styles.buttonContainer}
                       onPress={() => {
                         removeFaveId(props.data.id);
                       }}
@@ -64,7 +64,7 @@ const Session = props => {
                     </TouchableOpacity>
                   ) : (
                     <TouchableOpacity
-                      style={styles.imageContainer}
+                      style={styles.buttonContainer}
                       onPress={() => {
                         setFaveId(props.data.id);
                       }}
