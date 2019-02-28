@@ -25,8 +25,14 @@ const Session = props => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.speaker}>
+      <View style={styles.locationContainer}>
         <Text style={styles.location}>{props.data.location}</Text>
+        {props.faveIds.find(fave => fave === props.data.id) && (
+          <Ionicons style={styles.icon} name={getTypedIcon("heart")} />
+        )}
+        </View>
         <Text style={styles.title}>{props.data.title}</Text>
+
         <Text style={styles.time}>
           {moment(props.data.startTime).format("h:mm a")}
         </Text>
@@ -47,10 +53,6 @@ const Session = props => {
             />
             <Text style={styles.name}>{props.data.speaker.name}</Text>
           </TouchableOpacity>
-
-          {props.faveIds.find(fave => fave === props.data.id) && (
-            <Ionicons style={styles.icon} name={getTypedIcon("heart")} />
-          )}
 
           <View>
             <FavesContext.Consumer>

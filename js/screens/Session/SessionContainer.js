@@ -3,13 +3,16 @@ import { View, Text } from "react-native";
 import Session from "./Session";
 import FavesContext from "../../context/FavesContext";
 
-
 export default class SessionContainer extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {};
-  // }
-
+  static navigationOptions = {
+    title: "Session",
+    // headerTintColor: "#fff",
+    headerTitleStyle: {
+      fontWeight: "bold",
+      color: "#FFFFFF",
+      fontSize: 20
+    }
+  };
   render() {
     const session = this.props.navigation.getParam("session");
     console.log(session);
