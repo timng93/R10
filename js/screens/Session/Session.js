@@ -25,11 +25,15 @@ const Session = props => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.speaker}>
-      <View style={styles.locationContainer}>
-        <Text style={styles.location}>{props.data.location}</Text>
-        {props.faveIds.find(fave => fave === props.data.id) && (
-          <Ionicons style={styles.icon} name={getTypedIcon("heart")} />
-        )}
+        <View style={styles.locationContainer}>
+          <Text style={styles.location}>{props.data.location}</Text>
+          {props.faveIds.find(fave => fave === props.data.id) && (
+            <Ionicons
+              style={styles.icon}
+              size={20}
+              name={getTypedIcon("heart")}
+            />
+          )}
         </View>
         <Text style={styles.title}>{props.data.title}</Text>
 
@@ -37,7 +41,7 @@ const Session = props => {
           {moment(props.data.startTime).format("h:mm a")}
         </Text>
         <Text style={styles.description}>{props.data.description}</Text>
-        <Text style={styles.location}>Presented by:</Text>
+        <Text style={styles.presenter}>Presented by:</Text>
         <View>
           <TouchableOpacity
             style={styles.imageContainer}
@@ -47,12 +51,15 @@ const Session = props => {
               });
             }}
           >
-            <Image
-              style={styles.image}
-              source={{ uri: props.data.speaker.image }}
-            />
-            <Text style={styles.name}>{props.data.speaker.name}</Text>
+            <View style={styles.speakerContainer}>
+              <Image
+                style={styles.image}
+                source={{ uri: props.data.speaker.image }}
+              />
+              <Text style={styles.name}>{props.data.speaker.name}</Text>
+            </View>
           </TouchableOpacity>
+          <View style={styles.itemSeparator} />
 
           <View>
             <FavesContext.Consumer>

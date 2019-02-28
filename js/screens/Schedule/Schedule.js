@@ -31,16 +31,12 @@ const Schedule = props => {
             }}
           >
             <View style={styles.items} key={index}>
-              <Text>
-                {item.title}
-              </Text>
+              <Text>{item.title}</Text>
               <View style={styles.locationView}>
                 <Text style={styles.location}>{item.location}</Text>
               </View>
               {props.faveIds.find(fave => fave === item.id) && (
                 <Ionicons style={styles.icon} name={getTypedIcon("heart")} />
-
-                // <Ionicons style={styles.icon} name={"ios-heart"} />
               )}
             </View>
           </TouchableHighlight>

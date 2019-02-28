@@ -7,7 +7,6 @@ import ScheduleScreen from "../screens/Schedule";
 import SessionScreen from "../screens/Session";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
-import { Platform } from "react-native";
 
 const ScheduleStack = createStackNavigator(
   {
@@ -19,14 +18,6 @@ const ScheduleStack = createStackNavigator(
       ...sharedNavigationOptions(navigation)
     })
   }
-  // {
-  //   navigationOptions: ({ navigation }) => ({
-  //     ...sharedNavigationOptions(navigation),
-  //     drawerIcon: ({ tintColor }) => (
-  //       <Ionicons name={`md-calendar`} size={25} color={tintColor} />
-  //     )
-  //   })
-  // }
 );
 
 const MapsStack = createStackNavigator(
@@ -34,7 +25,7 @@ const MapsStack = createStackNavigator(
     Maps: MapsScreen
   },
   {
-    navigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
     })
   }
@@ -46,7 +37,7 @@ const FavesStack = createStackNavigator(
     Session: SessionScreen
   },
   {
-    navigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
     })
   }
@@ -57,35 +48,36 @@ const AboutStack = createStackNavigator(
     About: AboutScreen
   },
   {
-    navigationOptions: ({ navigation }) => ({
+    defaultNavigationOptions: ({ navigation }) => ({
       ...sharedNavigationOptions(navigation)
     })
   }
 );
 
 // Dedicated stacks for Schedule and Faves will go here too!
-export default createDrawerNavigator({
-  Schedule: ScheduleStack,
-  Map: MapsStack,
-  Faves: FavesStack,
-  About: AboutStack
-},
-{
-  defaultNavigationOptions: ({ navigation }) => ({
-    drawerIcon: ({ focused, horizontal, tintColor }) => {
-      const { routeName } = navigation.state;
-      let iconName;
-      if (routeName === "Schedule") {
-        iconName = `md-calendar`;
-      } else if (routeName === "Map") {
-        iconName = `md-map`;
-      } else if (routeName === "Faves") {
-        iconName = `md-heart`;
-      } else if (routeName === "About") {
-        iconName = `md-information-circle`;
+export default createDrawerNavigator(
+  {
+    Schedule: ScheduleStack,
+    Map: MapsStack,
+    Faves: FavesStack,
+    About: AboutStack
+  },
+  {
+    defaultNavigationOptions: ({ navigation }) => ({
+      drawerIcon: ({ focused, horizontal, tintColor }) => {
+        const { routeName } = navigation.state;
+        let iconName;
+        if (routeName === "Schedule") {
+          iconName = `md-calendar`;
+        } else if (routeName === "Map") {
+          iconName = `md-map`;
+        } else if (routeName === "Faves") {
+          iconName = `md-heart`;
+        } else if (routeName === "About") {
+          iconName = `md-information-circle`;
+        }
+        return <Ionicons name={iconName} size={25} color={tintColor} />;
       }
-      return <Ionicons name={iconName} size={25} color={tintColor} />;
-    }
-  }),
-}
+    })
+  }
 );
