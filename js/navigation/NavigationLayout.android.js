@@ -88,7 +88,7 @@ export default createDrawerNavigator(
       activeTintColor: "#fff",
       inactiveTintColor: "#999",
       labelStyle: {
-        fontSize: 10,
+        fontSize: 15,
         ...Platform.select({
           ios: {
           fontFamily: "Montserrat"

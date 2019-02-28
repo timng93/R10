@@ -14,9 +14,8 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import { Platform } from "react-native";
 
 const getTypedIcon = name => {
-return Platform.OS === "ios" ? `ios-${name}` : `md-${name}`;
+  return Platform.OS === "ios" ? `ios-${name}` : `md-${name}`;
 };
-
 
 const Schedule = props => {
   return (
@@ -27,12 +26,14 @@ const Schedule = props => {
           <TouchableHighlight
             onPress={() => {
               props.navigation.navigate("Session", {
-               session: item
+                session: item
               });
             }}
           >
             <View style={styles.items} key={index}>
-              <Text style={styles.title}>{item.title}</Text>
+              <Text>
+                {item.title}
+              </Text>
               <View style={styles.locationView}>
                 <Text style={styles.location}>{item.location}</Text>
               </View>

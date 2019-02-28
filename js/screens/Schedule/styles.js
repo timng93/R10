@@ -12,8 +12,9 @@ const styles = StyleSheet.create({
     padding: 8
   },
   title: {
+    fontFamily: "Montserrat-Regular",
     fontSize: 16,
-    fontWeight: "600",
+    fontWeight: "600"
   },
   icon: {
     color: "red"
