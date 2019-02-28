@@ -88,7 +88,14 @@ export default createBottomTabNavigator(
       inactiveTintColor: "#999",
       labelStyle: {
         fontSize: 10,
-        fontFamily: "Montserrat"
+        ...Platform.select({
+          ios: {
+          fontFamily: "Montserrat"
+          },
+          android: {
+          fontFamily: "Montserrat-Regular"
+          }
+          })
       },
       style: {
         backgroundColor: "#000"

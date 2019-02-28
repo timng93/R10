@@ -11,6 +11,12 @@ import moment from "moment";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import FavesContext from "../../context/FavesContext";
+import Ionicons from "react-native-vector-icons/Ionicons";
+import { Platform } from "react-native";
+
+const getTypedIcon = name => {
+  return Platform.OS === "ios" ? `ios-${name}` : `md-${name}`;
+};
 
 const Session = props => {
   console.log(props.data);
@@ -41,6 +47,10 @@ const Session = props => {
             />
             <Text style={styles.name}>{props.data.speaker.name}</Text>
           </TouchableOpacity>
+
+          {props.faveIds.find(fave => fave === props.data.id) && (
+            <Ionicons style={styles.icon} name={getTypedIcon("heart")} />
+          )}
 
           <View>
             <FavesContext.Consumer>

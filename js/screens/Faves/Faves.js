@@ -3,6 +3,11 @@ import { Text, View, SectionList, TouchableHighlight } from "react-native";
 import styles from "./styles";
 import moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import { Platform } from "react-native";
+
+const getTypedIcon = name => {
+  return Platform.OS === "ios" ? `ios-${name}` : `md-${name}`;
+};
 
 const Faves = props => {
   return (
@@ -23,7 +28,7 @@ const Faves = props => {
                 <Text style={styles.location}>{item.location}</Text>
               </View>
               {props.faveIds.find(fave => fave === item.id) && (
-                <Ionicons style={styles.icon} name={"ios-heart"} />
+                <Ionicons style={styles.icon} name={getTypedIcon("heart")} />
               )}
             </View>
           </TouchableHighlight>
