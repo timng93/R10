@@ -10,6 +10,8 @@ import {
 } from "react-native";
 import styles from "./styles";
 import moment from "moment";
+import Ionicons from "react-native-vector-icons/Ionicons";
+
 
 const Schedule = props => {
   return (
@@ -18,7 +20,7 @@ const Schedule = props => {
         style={styles.sectionList}
         renderItem={({ item, index }) => (
           <TouchableHighlight
-            onPress={e => {
+            onPress={() => {
               props.navigation.navigate("Session", {
                session: item
               });
@@ -29,6 +31,9 @@ const Schedule = props => {
               <View style={styles.locationView}>
                 <Text style={styles.location}>{item.location}</Text>
               </View>
+              {props.faveIds.find(fave => fave === item.id) && (
+                <Ionicons style={styles.icon} name={"ios-heart"} />
+              )}
             </View>
           </TouchableHighlight>
         )}

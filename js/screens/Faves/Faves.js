@@ -23,7 +23,7 @@ const Faves = props => {
                 <Text style={styles.location}>{item.location}</Text>
               </View>
               {props.faveIds.find(fave => fave === item.id) && (
-                <Ionicons name={"ios-heart"} />
+                <Ionicons style={styles.icon} name={"ios-heart"} />
               )}
             </View>
           </TouchableHighlight>

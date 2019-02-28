@@ -14,7 +14,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: "600",
-
+  },
+  icon: {
+    color: "red"
   }
 });
 
