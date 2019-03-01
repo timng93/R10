@@ -1,16 +1,9 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     padding: 20,
     fontFamily: "Montserrat-Regular"
-  },
-  header: {
-    backgroundColor: "#e6e6e6",
-    padding: 5,
-    fontSize: 14,
-    fontWeight: "600",
-    textTransform: "uppercase"
   },
   locationContainer: {
     flex: 1,
@@ -30,11 +23,20 @@ const styles = StyleSheet.create({
     fontWeight: "600"
   },
   time: {
-    fontSize: 17,
-    color: "#cf392a",
-    paddingTop: 15,
-    textTransform: "uppercase",
-    fontWeight: "600"
+    ...Platform.select({
+      ios: {
+        fontSize: 15,
+        color: "#cf392a",
+        paddingTop: 15,
+        textTransform: "uppercase",
+        fontWeight: "600"
+      },
+      android: {
+        fontSize: 15,
+        paddingTop: 15,
+        color: "#cf392a"
+      }
+    })
   },
   description: {
     fontSize: 20,
@@ -78,7 +80,7 @@ const styles = StyleSheet.create({
   },
   itemSeparator: {
     height: 1,
-    backgroundColor: '#e6e6e6',
+    backgroundColor: "#e6e6e6",
     marginTop: 15
   }
 });

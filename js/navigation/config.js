@@ -31,12 +31,14 @@ export const sharedNavigationOptions = navigation => ({
           style={{ paddingLeft: 10 }}
           size={25}
           name="md-menu"
+          color="#fff"
           onPress={() => navigation.toggleDrawer()}
         />
       ) : (
         <Ionicons
           style={{ paddingLeft: 10 }}
           size={25}
+          color="#fff"
           name="md-arrow-back"
           onPress={() => navigation.pop()}
         />

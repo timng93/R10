@@ -31,7 +31,7 @@ const Schedule = props => {
             }}
           >
             <View style={styles.items} key={index}>
-              <Text>{item.title}</Text>
+              <Text style={styles.title}>{item.title}</Text>
               <View style={styles.locationView}>
                 <Text style={styles.location}>{item.location}</Text>
               </View>
@@ -44,7 +44,7 @@ const Schedule = props => {
         sections={props.data}
         renderSectionHeader={({ section }) => (
           <Text style={styles.header}>
-            {moment(section.title).format("h:mm a")}
+            {moment(section.title).format("LT")}
           </Text>
         )}
         ItemSeparatorComponent={() => {

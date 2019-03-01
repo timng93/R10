@@ -5,7 +5,6 @@ import {
   Image,
   TouchableOpacity,
   ScrollView,
-  Button
 } from "react-native";
 import moment from "moment";
 import styles from "./styles";
@@ -38,7 +37,7 @@ const Session = props => {
         <Text style={styles.title}>{props.data.title}</Text>
 
         <Text style={styles.time}>
-          {moment(props.data.startTime).format("h:mm a")}
+          {moment(props.data.startTime).format("LT")}
         </Text>
         <Text style={styles.description}>{props.data.description}</Text>
         <Text style={styles.presenter}>Presented by:</Text>
