@@ -4,12 +4,15 @@ const styles = StyleSheet.create({
   background: {
     backgroundColor: "#000"
   },
-  navigationButton: {
-    marginTop: 55
+  buttonContainer: {
+    marginTop: 40
   },
   speaker: {
     backgroundColor: "#fff",
     marginTop: 40
+  },
+  speakerTitle: {
+    color: "white"
   },
 
   image: {

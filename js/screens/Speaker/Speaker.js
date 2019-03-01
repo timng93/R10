@@ -6,16 +6,15 @@ const Speaker = props => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.background}>
-        <Button
-          style={styles.navigationButton}
-          onPress={() => props.navigation.goBack()}
-          title=""
-        />
-        <Button
-          style={styles.navigationButton}
-          onPress={() => props.navigation.goBack()}
-          title="X"
-        />
+        <View style={styles.buttonContainer}>
+          <Button
+            style={styles.navigationButton}
+            onPress={() => props.navigation.goBack()}
+            title="X"
+          />
+          <Text style={styles.speakerTitle}>About the Speaker</Text>
+        </View>
+
         <View style={styles.speaker}>
           <View style={styles.speakerContainer}>
             <Image style={styles.image} source={{ uri: props.speaker.image }} />
