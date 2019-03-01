@@ -1,35 +1,8 @@
 import React, { Component } from "react";
-import {
-  Text,
-  View,
-  Image,
-  ScrollView,
-  FlatList,
-  LayoutAnimation
-} from "react-native";
+import { Text, Image, ScrollView, FlatList } from "react-native";
 import styles from "./styles";
+import CollapsibleConduct from "./CollapsibleConduct";
 
-class CollapsableCodeOfConduct extends Component {
-  state = { isOpen: false };
-
-  _toggle() {
-    LayoutAnimation.easeInEaseOut();
-    this.setState({ isOpen: !this.state.isOpen });
-  }
-
-  render() {
-    const { styles, item } = this.props;
-    return (
-      <View>
-        <Text onPress={() => this._toggle()} style={{ color: "purple" }}>
-          {!this.state.isOpen ? "+" : "-"}
-          {item.title}
-        </Text>
-        {this.state.isOpen ? <Text style={styles.description}>{item.description}</Text> : null}
-      </View>
-    );
-  }
-}
 class About extends Component {
   constructor(props) {
     super(props);
@@ -56,9 +29,7 @@ class About extends Component {
         <FlatList
           style={styles.list}
           data={this.props.data.allConducts}
-          renderItem={({ item }) => (
-            <CollapsableCodeOfConduct item={item} styles={styles} />
-          )}
+          renderItem={({ item }) => <CollapsibleConduct item={item} />}
           keyExtractor={item => item.id + ""}
           // ItemSeparatorComponent={() => <Text>I am a separator</Text>}
           //   keyExtractor={item => item.index + ""}
