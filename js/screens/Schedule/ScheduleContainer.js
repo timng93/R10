@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Schedule from "./Schedule";
@@ -45,7 +45,7 @@ class ScheduleContainer extends Component {
         `}
       >
         {({ loading, error, data }) => {
-          if (loading) return <Text>Loading..</Text>;
+          if (loading) return <ActivityIndicator />;
           if (error) return console.log(error);
           return (
             <FavesContext.Consumer>

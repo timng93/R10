@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import FavesContext from "../../context/FavesContext";
 import { formatSessionData } from "../../lib/helpers/dataFormatHelpers";
-import { View, Text } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 
 const query = gql`
   query filterSessions($filter: SessionFilter) {
@@ -48,7 +48,7 @@ export default class FavesContainer extends Component {
               }}
             >
               {({ loading, error, data }) => {
-                if (loading) return <Text>Loading..</Text>;
+                if (loading) return  <ActivityIndicator />;
                 if (error) return console.log(error);
                 return (
                   <Faves

@@ -25,9 +25,11 @@ const Schedule = props => {
         renderItem={({ item, index }) => (
           <TouchableHighlight
             onPress={() => {
-              props.navigation.navigate("Session", {
-                session: item
-              });
+              !item.speaker
+                ? props.navigation.navigate("", {})
+                : props.navigation.navigate("Session", {
+                    session: item
+                  });
             }}
           >
             <View style={styles.items} key={index}>
