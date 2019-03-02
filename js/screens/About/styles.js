@@ -5,16 +5,49 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "white"
   },
-  title: {
-    fontWeight: "700"
-  },
   image: {
-    // height: 50,
-    // width: 80
+    marginTop: 20,
+    height: 60,
+    width: 240
+  },
+  mainContent: {
+    padding: 10
   },
   list: {
     color: "#F5FCFF"
-    // flex: 1
+  },
+  itemSeparator: {
+    height: 1,
+    backgroundColor: "#e6e6e6",
+    marginTop: 15
+  },
+  title: {
+    fontSize: 22,
+    paddingTop: 15,
+    fontWeight: "700",
+    fontFamily: "Montserrat"
+  },
+  description: {
+    fontSize: 18,
+    fontFamily: "Montserrat",
+    fontWeight: "300",
+    paddingTop: 15
+  },
+  listTitle: {
+    paddingTop: 15,
+    fontFamily: "Montserrat",
+    fontSize: 15,
+    color: "#9963ea"
+  },
+  bullet: {
+    paddingTop: 15,
+    paddingRight: 2,
+    color: "#9963ea"
+  },
+  copyright: {
+    fontFamily: "Montserrat",
+    paddingTop: 15,
+    fontSize: 15
   }
 });
 

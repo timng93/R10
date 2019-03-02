@@ -5,7 +5,8 @@ import {
   LayoutAnimation,
   Animated,
   Platform,
-  TouchableOpacity
+  TouchableOpacity,
+  UIManager
 } from "react-native";
 import styles from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
@@ -40,7 +41,7 @@ class CollapsibleConduct extends Component {
   render() {
     const { item } = this.props;
     const rotateIcon = this.state.rotateValue.interpolate({
-      inputRange: ["0", "1"],
+      inputRange: ["0", "360"],
       outputRange: ["0deg", "360deg"]
     });
 
@@ -60,11 +61,19 @@ class CollapsibleConduct extends Component {
                   <Animated.View
                     style={{ transform: [{ rotate: rotateIcon }] }}
                   >
-                    <Ionicons
-                      name={"ios-remove"}
-                      style={styles.bullet}
-                      size={20}
-                    />
+                    {Platform.OS === "ios" ? (
+                      <Ionicons
+                        name={"ios-remove"}
+                        style={styles.bullet}
+                        size={20}
+                      />
+                    ) : (
+                      <Ionicons
+                        name={"md-remove"}
+                        style={styles.bullet}
+                        size={20}
+                      />
+                    )}
                   </Animated.View>
                 </View>
                 <Text style={styles.listTitle}>{item.title}</Text>
@@ -76,7 +85,19 @@ class CollapsibleConduct extends Component {
             <View style={{ flexDirection: "row" }}>
               <View>
                 <Animated.View style={{ transform: [{ rotate: rotateIcon }] }}>
-                  <Ionicons name={"ios-add"} style={styles.bullet} size={20} />
+                  {Platform.OS === "ios" ? (
+                    <Ionicons
+                      name={"ios-add"}
+                      style={styles.bullet}
+                      size={20}
+                    />
+                  ) : (
+                    <Ionicons
+                      name={"md-add"}
+                      style={styles.bullet}
+                      size={20}
+                    />
+                  )}
                 </Animated.View>
               </View>
               <Text style={styles.listTitle}>{item.title}</Text>
