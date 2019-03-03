@@ -58,7 +58,6 @@ const styles = StyleSheet.create({
     padding: 5
   },
   buttonText: {
-    textTransform: "uppercase",
     textAlign: "center"
   },
   items: {
