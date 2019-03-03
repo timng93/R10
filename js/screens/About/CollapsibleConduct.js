@@ -20,7 +20,7 @@ class CollapsibleConduct extends Component {
     }
     this.state = {
       isOpen: false,
-      rotateValue: new Animated.Value()
+      rotateValue: new Animated.Value(0.05)
     };
   }
 
@@ -48,10 +48,9 @@ class CollapsibleConduct extends Component {
     return (
       <View style={styles.flatList}>
         <TouchableOpacity
-          activeOpacity={0.8}
+          activeOpacity={0.5}
           onPress={() => {
             this.toggle();
-            this.animateSpin();
           }}
         >
           {this.state.isOpen ? (
