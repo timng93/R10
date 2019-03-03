@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     padding: 10,
     fontWeight: "300",
     fontFamily: "Montserrat"
-  }
+  },
+  
 });
 
 export default styles;

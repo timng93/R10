@@ -57,9 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     padding: 5
   },
-  buttonText: {
-    textAlign: "center"
-  },
+
   items: {
     padding: 8
   },
@@ -75,6 +73,11 @@ const styles = StyleSheet.create({
     marginTop: 19,
     marginLeft: 10,
     fontWeight: "600",
+    fontSize: 16
+  },
+  buttonText: {
+    color: "#fff",
+    textAlign: "center",
     fontSize: 16
   },
   itemSeparator: {
