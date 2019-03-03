@@ -1,18 +1,30 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "#000"
+    backgroundColor: "#000",
+    height: Dimensions.get("window").height
   },
-  buttonContainer: {
-    marginTop: 40
+  headerContainer: {
+    flex: 1,
+    flexDirection: "row"
+  },
+  icon: {
+    paddingTop: 45,
+    paddingLeft: 30
   },
   speaker: {
-    backgroundColor: "#fff",
-    marginTop: 40
+    fontSize: 18,
+    fontFamily: "Montserrat",
+    paddingTop: 45,
+    color: "#fff",
+    paddingLeft: 60
   },
-  speakerTitle: {
-    color: "white"
+  info: {
+    backgroundColor: "#fff",
+    height: Dimensions.get("window").height - 100,
+    margin: 15,
+    borderRadius: 10
   },
 
   image: {
@@ -26,12 +38,15 @@ const styles = StyleSheet.create({
     fontSize: 30,
     paddingTop: 15,
     fontWeight: "600",
-    left: "27%"
+    fontFamily: "Montserrat",
+    textAlign: "center"
   },
   description: {
     fontSize: 18,
     paddingTop: 15,
-    padding: 10
+    padding: 10,
+    fontWeight: "300",
+    fontFamily: "Montserrat"
   }
 });
 
