@@ -1,26 +1,19 @@
-import React from 'react'
-import { TouchableOpacity, Text } from 'react-native'
-import LinearGradient from 'react-native-linear-gradient'
+import React from "react";
+import LinearGradient from "react-native-linear-gradient";
+import { Text, TouchableOpacity } from "react-native";
 import styles from "./styles";
-import { grey } from 'ansi-colors';
 
-export const GradientButton = ({ link, author }) => (
-  <TouchableOpacity
-    style={styles.buttonContainer}
-    activeOpacity={0.5}
-    onPress={link}
-  >
+const GradientButton = ({ title, buttonPress }) => (
+  <TouchableOpacity style={styles.buttonPress} onPress={buttonPress}>
     <LinearGradient
-      colors={['#8797D6', '#9963ea']}
-      start={{ x: 1.0, y: 1.0 }}
-      end={{ x: 0.0, y: 0.0 }}
       style={styles.gradient}
+      colors={["#8797D6", "#9963ea"]}
+      start={{ x: 0.0, y: 1.0 }}
+      end={{ x: 1.0, y: 0.0 }}
     >
-      <Text
-        style={styles.buttonText}
-      >
-        {author}
-      </Text>
+      <Text style={styles.buttonTitle}>{title}</Text>
     </LinearGradient>
   </TouchableOpacity>
-)
+);
+
+export default GradientButton;
