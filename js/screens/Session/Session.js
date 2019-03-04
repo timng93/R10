@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import moment from "moment";
 import styles from "./styles";
@@ -12,16 +12,14 @@ const getTypedIcon = name => {
   return Platform.OS === "ios" ? `ios-${name}` : `md-${name}`;
 };
 
-const Session = props => {
-  console.log(props.data);
-  const isFave = props.faveIds.find(fave => fave === props.data.id);
-  console.log(isFave);
+const Session = ({ data, navigation, faveIds }) => {
+  const isFave = faveIds.find(fave => fave === data.id);
   return (
     <ScrollView style={styles.container}>
       <View style={styles.speaker}>
         <View style={styles.locationContainer}>
-          <Text style={styles.location}>{props.data.location}</Text>
-          {props.faveIds.find(fave => fave === props.data.id) && (
+          <Text style={styles.location}>{data.location}</Text>
+          {faveIds.find(fave => fave === data.id) && (
             <Ionicons
               style={styles.icon}
               size={20}
@@ -29,28 +27,26 @@ const Session = props => {
             />
           )}
         </View>
-        <Text style={styles.title}>{props.data.title}</Text>
+        <Text style={styles.title}>{data.title}</Text>
 
-        <Text style={styles.time}>
-          {moment(props.data.startTime).format("LT")}
-        </Text>
-        <Text style={styles.description}>{props.data.description}</Text>
+        <Text style={styles.time}>{moment(data.startTime).format("LT")}</Text>
+        <Text style={styles.description}>{data.description}</Text>
         <Text style={styles.presenter}>Presented by:</Text>
         <View>
           <TouchableOpacity
             style={styles.imageContainer}
             onPress={() => {
-              props.navigation.navigate("Speaker", {
-                speaker: props.data.speaker
+              navigation.navigate("Speaker", {
+                speaker: data.speaker
               });
             }}
           >
             <View style={styles.speakerContainer}>
               <Image
                 style={styles.image}
-                source={{ uri: props.data.speaker.image }}
+                source={{ uri: data.speaker.image }}
               />
-              <Text style={styles.name}>{props.data.speaker.name}</Text>
+              <Text style={styles.name}>{data.speaker.name}</Text>
             </View>
           </TouchableOpacity>
           <View style={styles.itemSeparator} />
@@ -63,7 +59,7 @@ const Session = props => {
                     <TouchableOpacity
                       style={styles.buttonContainer}
                       onPress={() => {
-                        removeFaveId(props.data.id);
+                        removeFaveId(data.id);
                       }}
                     >
                       <LinearGradient
@@ -79,7 +75,7 @@ const Session = props => {
                     <TouchableOpacity
                       style={styles.buttonContainer}
                       onPress={() => {
-                        setFaveId(props.data.id);
+                        setFaveId(data.id);
                       }}
                     >
                       <LinearGradient
@@ -100,6 +96,12 @@ const Session = props => {
       </View>
     </ScrollView>
   );
+};
+
+Session.propTypes = {
+  data: PropTypes.object.isRequired,
+  faveIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 export default Session;

@@ -19,7 +19,7 @@ const GradientButton = ({ title, buttonPress }) => (
 
 GradientButton.propTypes = {
   title: PropTypes.string.isRequired,
-  burronPress: PropTypes.func.isRequired
+  buttonPress: PropTypes.func.isRequired
 };
 
 export default GradientButton;

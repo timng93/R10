@@ -35,11 +35,16 @@ const Speaker = ({ speaker, navigation }) => (
         <Text style={styles.description}>{speaker.bio}</Text>
         <GradientButton
           buttonPress={() => Linking.openURL(speaker.url)}
-          title="Learn More On Wikipedia"
+          title="Read More On Wikipedia"
         />
       </ScrollView>
     </View>
   </View>
 );
+
+Speaker.propTypes = {
+  speaker: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired
+};
 
 export default Speaker;
