@@ -4,7 +4,6 @@ import { Header } from "react-navigation";
 import LinearGradient from "react-native-linear-gradient";
 import { Platform } from "react-native";
 import Ionicons from "react-native-vector-icons/Ionicons";
-// ...more to come here!
 
 const GradientHeader = props => (
   <View style={{ backgroundColor: "white", overflow: "hidden" }}>

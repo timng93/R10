@@ -10,8 +10,7 @@ import ScheduleScreen from "../screens/Schedule";
 import SessionScreen from "../screens/Session";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { sharedNavigationOptions } from "./config";
-import { Platform } from 'react-native'
-
+import globalStyles from "../config/styles";
 
 const ScheduleStack = createStackNavigator(
   {
@@ -90,14 +89,7 @@ export default createBottomTabNavigator(
       inactiveTintColor: "#999",
       labelStyle: {
         fontSize: 10,
-        ...Platform.select({
-          ios: {
-          fontFamily: "Montserrat"
-          },
-          android: {
-          fontFamily: "Montserrat-Regular"
-          }
-          })
+        ...globalStyles.fonts
       },
       style: {
         backgroundColor: "#000"

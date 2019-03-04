@@ -10,47 +10,50 @@ class FavesProvider extends Component {
   }
 
   componentDidMount() {
-      this.getFaveIds();
+    this.getFaveIds();
   }
 
   getFaveIds = async () => {
-      try {
-          const allFaves = await getFaves();
-          const faveIds = allFaves.map(fave => fave[0]);
-          this.setState({faveIds});
-      }
-      catch (error) {
-          console.log(error)
-      }
-  }
+    try {
+      const allFaves = await getFaves();
+      const faveIds = allFaves.map(fave => fave[0]);
+      this.setState({ faveIds });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   setFaveId = async faveId => {
-      try{
-          await setFave(faveId);
-          this.getFaveIds();
-      }
-      catch (error) {
-          console.log(error)
-      }
-  }
+    try {
+      await setFave(faveId);
+      this.getFaveIds();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   removeFaveId = async faveId => {
-      try{
-          await removeFave(faveId);
-          this.getFaveIds();
-      }
-      catch (error) {
-          console.log(error)
-      }
-  }
+    try {
+      await removeFave(faveId);
+      this.getFaveIds();
+    } catch (error) {
+      console.log(error);
+    }
+  };
   render() {
     return (
-      <FavesContext.Provider value={{ ...this.state, setFaveId: this.setFaveId, removeFaveId: this.removeFaveId }}>
+      <FavesContext.Provider
+        value={{
+          ...this.state,
+          setFaveId: this.setFaveId,
+          removeFaveId: this.removeFaveId
+        }}
+      >
         {this.props.children}
       </FavesContext.Provider>
     );
   }
 }
 
-export {FavesProvider}
+export { FavesProvider };
 export default FavesContext;
