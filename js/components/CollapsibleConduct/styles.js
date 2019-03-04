@@ -9,6 +9,7 @@ const styles = StyleSheet.create({
     ...globalStyles.fonts
   },
   listTitle: {
+    fontWeight: "600",
     paddingTop: 15,
     fontSize: 15,
     color: "#9963ea",
