@@ -1,9 +1,9 @@
 import { StyleSheet, Platform } from "react-native";
+import globalStyles from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    fontFamily: "Montserrat-Regular"
+    padding: 20
   },
   locationContainer: {
     flex: 1,
@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
   },
   location: {
     fontSize: 17,
-    fontWeight: "200"
+    fontWeight: "200",
+    ...globalStyles.fonts
   },
   icon: {
     color: "#cf392a"
@@ -20,32 +21,31 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 30,
     paddingTop: 15,
-    fontWeight: "600"
+    fontWeight: "600",
+    ...globalStyles.fonts
   },
   time: {
+    fontSize: 15,
+    color: "#cf392a",
+    paddingTop: 15,
+    fontWeight: "600",
+    ...globalStyles.fonts,
     ...Platform.select({
       ios: {
-        fontSize: 15,
-        color: "#cf392a",
-        paddingTop: 15,
-        textTransform: "uppercase",
-        fontWeight: "600"
-      },
-      android: {
-        fontSize: 15,
-        paddingTop: 15,
-        color: "#cf392a"
+        textTransform: "uppercase"
       }
     })
   },
   description: {
     fontSize: 20,
-    paddingTop: 15
+    paddingTop: 15,
+    ...globalStyles.fonts
   },
   presenter: {
     fontSize: 20,
     fontWeight: "200",
-    paddingTop: 15
+    paddingTop: 15,
+    ...globalStyles.fonts
   },
   speakerContainer: {
     flex: 1,
@@ -73,12 +73,14 @@ const styles = StyleSheet.create({
     marginTop: 19,
     marginLeft: 10,
     fontWeight: "600",
-    fontSize: 16
+    fontSize: 16,
+    ...globalStyles.fonts
   },
   buttonText: {
     color: "#fff",
     textAlign: "center",
-    fontSize: 16
+    fontSize: 16,
+    ...globalStyles.fonts
   },
   itemSeparator: {
     height: 1,

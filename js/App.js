@@ -8,8 +8,6 @@
  */
 
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
-import About from "./screens/About";
 import client from "./config/api";
 import { ApolloProvider } from "react-apollo";
 import RootStackNavigator from "./navigation/RootStackNavigator";

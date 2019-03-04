@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Maps from "./Maps";
+import Map from "./Map";
 import { Text, Platform } from "react-native";
 
-export default class MapsContainer extends Component {
+export default class MapContainer extends Component {
   static navigationOptions = {
     title: "Map",
     headerTitleStyle: {
@@ -18,6 +18,6 @@ export default class MapsContainer extends Component {
   }
 
   render() {
-    return Platform.OS === "ios" ? <Maps /> : <Text>Map</Text>;
+    return Platform.OS === "ios" ? <Map /> : <Text>Map</Text>;
   }
 }

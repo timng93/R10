@@ -1,10 +1,12 @@
 import { StyleSheet, Platform } from "react-native";
+import globalStyles from "../../config/styles";
 
 const styles = StyleSheet.create({
   header: {
     backgroundColor: "#e6e6e6",
     padding: 10,
     fontWeight: "600",
+    ...globalStyles.fonts,
     ...Platform.select({
       ios: {
         textTransform: "uppercase"
@@ -15,15 +17,10 @@ const styles = StyleSheet.create({
     padding: 8
   },
   title: {
-    fontFamily: "Montserrat",
-    ...Platform.select({
-      android: {
-        fontFamily: "Montserrat-Regular"
-      }
-    }),
     fontSize: 18,
     fontWeight: "700",
-    padding: 5
+    padding: 5,
+    ...globalStyles.fonts
   },
   locationContainer: {
     flex: 1,
@@ -32,15 +29,10 @@ const styles = StyleSheet.create({
     padding: 5
   },
   location: {
-    fontFamily: "Montserrat",
-    ...Platform.select({
-      android: {
-        fontFamily: "Montserrat-Regular"
-      }
-    }),
     fontWeight: "900",
     fontSize: 18,
-    color: "#999999"
+    color: "#999999",
+    ...globalStyles.fonts
   },
   icon: {
     color: "#cf392a"
@@ -52,4 +44,3 @@ const styles = StyleSheet.create({
 });
 
 export default styles;
-

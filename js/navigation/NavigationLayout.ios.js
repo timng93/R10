@@ -4,7 +4,7 @@ import {
   createBottomTabNavigator
 } from "react-navigation";
 import AboutScreen from "../screens/About";
-import MapsScreen from "../screens/Maps";
+import MapScreen from "../screens/Map";
 import FavesScreen from "../screens/Faves";
 import ScheduleScreen from "../screens/Schedule";
 import SessionScreen from "../screens/Session";
@@ -25,9 +25,9 @@ const ScheduleStack = createStackNavigator(
   }
 );
 
-const MapsStack = createStackNavigator(
+const MapStack = createStackNavigator(
   {
-    Maps: MapsScreen
+    Map: MapScreen
   },
   {
     defaultNavigationOptions: ({ navigation }) => ({
@@ -63,7 +63,7 @@ const AboutStack = createStackNavigator(
 export default createBottomTabNavigator(
   {
     Schedule: ScheduleStack,
-    Map: MapsStack,
+    Map: MapStack,
     Faves: FavesStack,
     About: AboutStack
   },

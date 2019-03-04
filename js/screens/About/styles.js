@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import globalStyles from "../../config/styles";
 
 const styles = StyleSheet.create({
   container: {
@@ -25,19 +26,19 @@ const styles = StyleSheet.create({
     fontSize: 22,
     paddingTop: 15,
     fontWeight: "700",
-    fontFamily: "Montserrat"
+    ...globalStyles.fonts
   },
   description: {
     fontSize: 18,
-    fontFamily: "Montserrat",
     fontWeight: "300",
-    paddingTop: 15
+    paddingTop: 15,
+    ...globalStyles.fonts
   },
   listTitle: {
     paddingTop: 15,
-    fontFamily: "Montserrat",
     fontSize: 15,
-    color: "#9963ea"
+    color: "#9963ea",
+    ...globalStyles.fonts
   },
   bullet: {
     paddingTop: 15,
@@ -45,9 +46,9 @@ const styles = StyleSheet.create({
     color: "#9963ea"
   },
   copyright: {
-    fontFamily: "Montserrat",
     paddingTop: 15,
-    fontSize: 15
+    fontSize: 15,
+    ...globalStyles.fonts
   }
 });
 

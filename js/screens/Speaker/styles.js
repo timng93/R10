@@ -1,4 +1,5 @@
 import { StyleSheet, Dimensions } from "react-native";
+import globalStyles from "../../config/styles";
 
 const styles = StyleSheet.create({
   background: {
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
   },
   speaker: {
     fontSize: 18,
-    fontFamily: "Montserrat",
+    ...globalStyles.fonts,
     paddingTop: 45,
     color: "#fff",
     paddingLeft: 60
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     paddingTop: 15,
     fontWeight: "600",
-    fontFamily: "Montserrat",
+    ...globalStyles.fonts,
     textAlign: "center"
   },
   description: {
@@ -46,9 +47,8 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     padding: 10,
     fontWeight: "300",
-    fontFamily: "Montserrat"
-  },
-  
+    ...globalStyles.fonts
+  }
 });
 
 export default styles;

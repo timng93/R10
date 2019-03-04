@@ -1,4 +1,5 @@
 import { StyleSheet, Platform } from "react-native";
+import globalStyles from "../../config/styles";
 
 const styles = StyleSheet.create({
   header: {
@@ -15,12 +16,7 @@ const styles = StyleSheet.create({
     padding: 8
   },
   title: {
-    fontFamily: "Montserrat",
-    ...Platform.select({
-      android: {
-        fontFamily: "Montserrat-Regular"
-      }
-    }),
+    ...globalStyles.fonts,
     fontSize: 18,
     fontWeight: "700",
     padding: 5
@@ -32,12 +28,7 @@ const styles = StyleSheet.create({
     padding: 5
   },
   location: {
-    fontFamily: "Montserrat",
-    ...Platform.select({
-      android: {
-        fontFamily: "Montserrat-Regular"
-      }
-    }),
+    ...globalStyles.fonts,
     fontWeight: "900",
     fontSize: 18,
     color: "#999999"
