@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
   location: {
     fontSize: 17,
     fontWeight: "200",
+    color: '#999999',
     ...globalStyles.fonts
   },
   icon: {
@@ -45,7 +46,8 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "200",
     paddingTop: 15,
-    ...globalStyles.fonts
+    ...globalStyles.fonts,
+    color: '#999999'
   },
   speakerContainer: {
     flex: 1,
