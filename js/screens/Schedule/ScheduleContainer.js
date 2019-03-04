@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, ActivityIndicator } from "react-native";
+import { ActivityIndicator } from "react-native";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import Schedule from "./Schedule";
@@ -7,14 +7,8 @@ import { formatSessionData } from "../../lib/helpers/dataFormatHelpers";
 import FavesContext from "../../context/FavesContext";
 
 class ScheduleContainer extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   static navigationOptions = {
     title: "Schedule",
-    // headerTintColor: "#fff",
     headerTitleStyle: {
       fontWeight: "bold",
       color: "#FFFFFF",
@@ -23,7 +17,6 @@ class ScheduleContainer extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <Query
         query={gql`

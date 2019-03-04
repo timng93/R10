@@ -48,7 +48,7 @@ export default class FavesContainer extends Component {
               }}
             >
               {({ loading, error, data }) => {
-                if (loading) return  <ActivityIndicator />;
+                if (loading) return <ActivityIndicator />;
                 if (error) return console.log(error);
                 return (
                   <Faves

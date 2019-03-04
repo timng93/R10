@@ -10,6 +10,7 @@ import {
 import Ionicons from "react-native-vector-icons/Ionicons";
 import GradientButton from "../../components/GradientButton";
 import styles from "./styles";
+import PropTypes from "prop-types";
 
 const Speaker = ({ speaker, navigation }) => (
   <View style={styles.background}>

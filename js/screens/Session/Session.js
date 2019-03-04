@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  ScrollView,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, ScrollView } from "react-native";
 import moment from "moment";
 import styles from "./styles";
 import LinearGradient from "react-native-linear-gradient";
 import FavesContext from "../../context/FavesContext";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Platform } from "react-native";
+import PropTypes from "prop-types";
 
 const getTypedIcon = name => {
   return Platform.OS === "ios" ? `ios-${name}` : `md-${name}`;

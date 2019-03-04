@@ -4,19 +4,18 @@ import styles from "./styles";
 import moment from "moment";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { Platform } from "react-native";
+import PropTypes from "prop-types";
 
 const getTypedIcon = name => {
   return Platform.OS === "ios" ? `ios-${name}` : `md-${name}`;
 };
 
-const Faves = props => {
-  console.log(props);
-
+const Faves = ({ data, navigation, faveIds }) => {
   return (
     <View style={styles.container}>
       <SectionList
         style={styles.sectionList}
-        sections={props.data}
+        sections={data}
         keyExtractor={(item, index) => item + index}
         renderSectionHeader={({ section }) => (
           <Text style={styles.header}>
@@ -26,7 +25,7 @@ const Faves = props => {
         renderItem={({ item, index }) => (
           <TouchableHighlight
             onPress={() => {
-              props.navigation.navigate("Session", {
+              navigation.navigate("Session", {
                 session: item
               });
             }}
@@ -37,7 +36,7 @@ const Faves = props => {
               <Text style={styles.title}>{item.title}</Text>
               <View style={styles.locationContainer}>
                 <Text style={styles.location}>{item.location}</Text>
-                {props.faveIds.find(fave => fave === item.id) && (
+                {faveIds.find(fave => fave === item.id) && (
                   <Ionicons
                     style={styles.icon}
                     size={17}
@@ -55,4 +54,11 @@ const Faves = props => {
     </View>
   );
 };
+
+Faves.propTypes = {
+  data: PropTypes.arrayOf(PropTypes.object).isRequired,
+  faveIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  navigation: PropTypes.object.isRequired
+};
+
 export default Faves;

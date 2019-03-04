@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   UIManager
 } from "react-native";
+import PropTypes from "prop-types";
 import styles from "./styles";
 import Ionicons from "react-native-vector-icons/Ionicons";
 
@@ -91,11 +92,7 @@ class CollapsibleConduct extends Component {
                       size={20}
                     />
                   ) : (
-                    <Ionicons
-                      name={"md-add"}
-                      style={styles.bullet}
-                      size={20}
-                    />
+                    <Ionicons name={"md-add"} style={styles.bullet} size={20} />
                   )}
                 </Animated.View>
               </View>
@@ -107,5 +104,9 @@ class CollapsibleConduct extends Component {
     );
   }
 }
+
+CollapsibleConduct.propTypes = {
+  item: PropTypes.object.isRequired
+};
 
 export default CollapsibleConduct;

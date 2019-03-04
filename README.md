@@ -1,6 +1,6 @@
 # R10
 
-R10 is a mobile application that allows user to check out conference sessions happening nearby. The user can like and unlike sessions. The sessions that are liked will be featured in a favorite list. The app can be viewed on both iOS and Android devices.
+R10 is a mobile application that allows user to check out speakers sessions happening at the R10 Conference. The user can like, unlike sessions, and read up more info on the sessions. The sessions that are liked will be featured in a favorite list. The app can be viewed on both iOS and Android devices.
 
 ## Author
 
@@ -36,9 +36,12 @@ Install
 
 Run App on iOS simulator
 `react-native run-ios`
+XCode is required as iOS Simulator
 
 Run App on Android simulator
 `react-native run-android`
+Android Studio is required as Android Simulator
+
 
 ## Reflections
 

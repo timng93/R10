@@ -34,17 +34,7 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     ...globalStyles.fonts
   },
-  listTitle: {
-    paddingTop: 15,
-    fontSize: 15,
-    color: "#9963ea",
-    ...globalStyles.fonts
-  },
-  bullet: {
-    paddingTop: 15,
-    paddingRight: 2,
-    color: "#9963ea"
-  },
+
   copyright: {
     paddingTop: 15,
     fontSize: 15,

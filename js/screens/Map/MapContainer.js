@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Map from "./Map";
 import { Text, Platform } from "react-native";
+import globalStyles from '../../config/styles'
 
 export default class MapContainer extends Component {
   static navigationOptions = {
@@ -8,14 +9,10 @@ export default class MapContainer extends Component {
     headerTitleStyle: {
       fontWeight: "bold",
       color: "#FFFFFF",
-      fontSize: 20
+      fontSize: 20,
+      ...globalStyles.fonts
     }
   };
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
 
   render() {
     return Platform.OS === "ios" ? <Map /> : <Text>Map</Text>;
