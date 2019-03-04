@@ -10,11 +10,11 @@ R10 is a mobile application that allows user to check out conference sessions ha
 
 ### Schedule Screen
 
-<img src="./screenshots/schedule.png" width="400" height="550">
+<img src="./screenshots/schedule.png" width="400" height="700">
 
 ### Session Screen
 
-<img src="./screenshots/session.png" width="400" height="550">
+<img src="./screenshots/session.png" width="400" height="700">
 
 ## Technologies Used
 
