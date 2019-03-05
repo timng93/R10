@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   gradient: {
     margin: 15,
     borderRadius: 25,
-    padding: 5
+    padding: 10
   },
   buttonTitle: {
     color: "#fff",

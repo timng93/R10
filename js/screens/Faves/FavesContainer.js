@@ -5,6 +5,7 @@ import gql from "graphql-tag";
 import FavesContext from "../../context/FavesContext";
 import { formatSessionData } from "../../lib/helpers/dataFormatHelpers";
 import { View, ActivityIndicator } from "react-native";
+import PropTypes from "prop-types";
 
 const query = gql`
   query filterSessions($filter: SessionFilter) {
@@ -48,7 +49,16 @@ export default class FavesContainer extends Component {
               }}
             >
               {({ loading, error, data }) => {
-                if (loading) return <ActivityIndicator />;
+                if (loading)
+                  return (
+                    <ActivityIndicator
+                      style={{
+                        flex: 1,
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                    />
+                  );
                 if (error) return console.log(error);
                 return (
                   <Faves
@@ -65,3 +75,7 @@ export default class FavesContainer extends Component {
     );
   }
 }
+
+FavesContainer.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
