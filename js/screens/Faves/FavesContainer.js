@@ -62,12 +62,17 @@ export default class FavesContainer extends Component {
                 if (error) return console.log(error);
                 if (data.allSessions.length === 0) {
                   return (
-                    <View>
+                    <View
+                      style={{
+                        justifyContent: "center",
+                        alignItems: "center"
+                      }}
+                    >
                       <Text
                         style={{
                           color: "#FF0000",
                           fontSize: 20,
-                          padding: 10,
+                          padding: 100
                         }}
                       >
                         There are no faves yet. Please pick some.
