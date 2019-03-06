@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 import gql from "graphql-tag";
 import FavesContext from "../../context/FavesContext";
 import { formatSessionData } from "../../lib/helpers/dataFormatHelpers";
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, Text } from "react-native";
 import PropTypes from "prop-types";
 
 const query = gql`
@@ -60,13 +60,29 @@ export default class FavesContainer extends Component {
                     />
                   );
                 if (error) return console.log(error);
-                return (
-                  <Faves
-                    data={formatSessionData(data.allSessions)}
-                    faveIds={faveIds}
-                    navigation={this.props.navigation}
-                  />
-                );
+                if (data.allSessions.length === 0) {
+                  return (
+                    <View>
+                      <Text
+                        style={{
+                          color: "#FF0000",
+                          fontSize: 20,
+                          padding: 10,
+                        }}
+                      >
+                        There are no faves yet. Please pick some.
+                      </Text>
+                    </View>
+                  );
+                } else {
+                  return (
+                    <Faves
+                      data={formatSessionData(data.allSessions)}
+                      faveIds={faveIds}
+                      navigation={this.props.navigation}
+                    />
+                  );
+                }
               }}
             </Query>
           </View>
