@@ -1,30 +1,12 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Faves from "./Faves";
-import { Query } from "react-apollo";
+import {Query} from "react-apollo";
 import gql from "graphql-tag";
 import FavesContext from "../../context/FavesContext";
-import { formatSessionData } from "../../lib/helpers/dataFormatHelpers";
-import { View, ActivityIndicator, Text } from "react-native";
+import {formatSessionData} from "../../lib/helpers/dataFormatHelpers";
+import {View, ActivityIndicator, Text} from "react-native";
 import PropTypes from "prop-types";
 
-const query = gql`
-  query filterSessions($filter: SessionFilter) {
-    allSessions(filter: $filter) {
-      id
-      description
-      location
-      speaker {
-        bio
-        id
-        image
-        name
-        url
-      }
-      startTime
-      title
-    }
-  }
-`;
 export default class FavesContainer extends Component {
   static navigationOptions = {
     title: "Faves",
@@ -37,30 +19,46 @@ export default class FavesContainer extends Component {
 
   render() {
     return (
-      <FavesContext.Consumer>
-        {({ faveIds }) => (
-          <View>
-            <Query
-              query={query}
-              variables={{
-                filter: {
-                  id_in: faveIds
-                }
-              }}
-            >
-              {({ loading, error, data }) => {
-                if (loading)
-                  return (
-                    <ActivityIndicator
-                      style={{
-                        flex: 1,
-                        justifyContent: "center",
-                        alignItems: "center"
-                      }}
-                    />
-                  );
-                if (error) return console.log(error);
-                if (data.allSessions.length === 0) {
+      <Query
+        query={gql`
+          {
+            allSessions {
+              id
+              title
+              description
+              location
+              startTime
+              speaker {
+                bio
+                id
+                image
+                name
+                url
+              }
+            }
+          }
+        `}
+      >
+        {({loading, error, data}) => {
+          if (loading)
+            return (
+              <ActivityIndicator
+                style={{
+                  flex: 1,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+              />
+            );
+          if (error) return console.log(error);
+          return (
+            <FavesContext.Consumer>
+              {({faveIds, setFaveId, removeFaveId}) => {
+                let filterSessions = data.allSessions.filter(session => {
+                  return faveIds.includes(session.id);
+                });
+
+                if (filterSessions.length === 0) {
                   return (
                     <View
                       style={{
@@ -82,17 +80,19 @@ export default class FavesContainer extends Component {
                 } else {
                   return (
                     <Faves
-                      data={formatSessionData(data.allSessions)}
+                      data={formatSessionData(filterSessions)}
                       faveIds={faveIds}
                       navigation={this.props.navigation}
+                      setFaveId={setFaveId}
+                      removeFaveId={removeFaveId}
                     />
                   );
                 }
               }}
-            </Query>
-          </View>
-        )}
-      </FavesContext.Consumer>
+            </FavesContext.Consumer>
+          );
+        }}
+      </Query>
     );
   }
 }
