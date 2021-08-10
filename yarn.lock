@@ -4501,9 +4501,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-to-regexp@^1.7.0:
   version "1.7.0"
@@ -4785,6 +4785,11 @@ react-native-linear-gradient@^2.5.3:
   resolved "https://registry.yarnpkg.com/react-native-linear-gradient/-/react-native-linear-gradient-2.5.3.tgz#d90cf19a13fcccfa8bb32025ac40a15ae1b49e99"
   integrity sha512-XdusrOXXlkI+yQpUW7YLeiq9cZiBwkvQX4XEkHPVrJ9H47gsKmdgBwObkZBzBQUP0dKK/Sg6aVpETEis4w43bQ==
 
+react-native-maps@^0.23.0:
+  version "0.23.0"
+  resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.23.0.tgz#edbfdcad0e42190627eb1c8067eaba5965c8f81e"
+  integrity sha512-qxOIQGsDtQXQlSJdXMW1wg8pvLaVYdbiIolB7tZTTgTGgIA/hDxXwZbQZ08c4KDD6/VTk8krfd1APaHkqvh6og==
+
 react-native-safe-area-view@^0.13.0:
   version "0.13.0"
   resolved "https://registry.yarnpkg.com/react-native-safe-area-view/-/react-native-safe-area-view-0.13.0.tgz#f2374f256121647e8aa2f1e9ada083426a266367"
@@ -4813,10 +4818,10 @@ react-native-vector-icons@^6.3.0:
     prop-types "^15.6.2"
     yargs "^8.0.2"
 
-react-native@0.58.5:
-  version "0.58.5"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.58.5.tgz#672709bafd845e35ab4dd32b8ccccae32d54d552"
-  integrity sha512-wCWjUAtvRK7A1YxnCANAW8/3+x3gh2WUifYqdvKSAJ6wGsftLgvj1JxIaUMQ3mKi0aUeAlHnz0cO21ZPCLgd+g==
+react-native@^0.58.6:
+  version "0.58.6"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.58.6.tgz#a6d273cd2f51b0e3b141dad5f19622e0000497b3"
+  integrity sha512-m/7L0gYXS4yHjs+PKmyurh1LLr7/tpobAX8Iv7Dwu4XT1ZcZFeCATn420E9U3nC2XsT54AmRR2Fv7VGgf+M2vQ==
   dependencies:
     "@babel/runtime" "^7.0.0"
     absolute-path "^0.0.0"
